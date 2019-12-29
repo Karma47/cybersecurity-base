@@ -1,0 +1,57 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Plebbit</title>
+	<meta charset="UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0"/>
+	<meta name="description" content="Insecure Web Application for CyberSecurityBase"/>
+</head>
+
+<body>
+    <div th:fragment="headAndRes">
+        <title>Plebbit</title>
+    	<meta charset="UTF-8"/>
+    	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    	<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0"/>
+    	<meta name="description" content="Insecure Web Application for CyberSecurityBase"/>
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+        <link rel="stylesheet" type="text/css" media="all" href="/css/style.css" th:href="@{/css/style.css}"></link>   
+    </div>
+    
+    <div th:fragment="notLoggedIn">
+        <div class="top-navbar">
+            <ul>
+                <li id="logo"><a th:href="@{/main}">Plebbit</a></li>
+                <li class="rightJust"><a th:href="@{/login}">Log In</a></li>
+                <li class="rightJust"><a th:href="@{/signup}">Sign Up</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div th:fragment="loggedIn">
+        <div class="top-navbar">
+            <ul>
+                <li id="logo"><a th:href="@{/main}">Plebbit</a></li>
+                <li class="rightJust"><a th:href="@{/account}"><span th:text="${username}"></span></a></li>
+                <li class="rightJust"><a th:href="@{/logout}">Sign Out</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div th:fragment="edit">
+        <h1> Edit a Post </h1>
+    </div>
+    
+    <div th:fragment="new">
+        <h1> Create a New Post </h1>
+    </div>
+    
+    <div th:fragment="footer">
+        <footer class="footer">
+            <div class="container footer-center">
+                <p>As you think so shall you become </p><p> &#169; Bruce lee</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

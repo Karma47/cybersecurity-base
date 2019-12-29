@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <div th:include="fragments/header :: headAndRes"></div>
+    </head>
+    <body>
+        <div th:replace="fragments/header :: loggedIn">
+            <p> Navbar goes here </p>
+        </div>
+        
+        <h1> Change Password </h1>
+        <form th:action="@{/change}" th:method="PATCH">
+            <p> Password </p> <input type="password" name="password"/>
+            <br/>
+            <input type="submit" value="Change"/>
+        </form>
+
+        <div th:replace="fragments/header :: footer">
+            <p> The footer goes here </p>
+        </div>
+    </body>
+</html>

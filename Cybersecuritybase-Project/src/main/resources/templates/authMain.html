@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <div th:include="fragments/header :: headAndRes"></div>
+    </head>
+    <body>
+        <div th:replace="fragments/header :: 'loggedIn'"></div>
+        
+        <h1> Home </h1>
+
+        <div class="bodyForm">
+            <ul class="posts">
+                <!-- If you're looking through the code, this is the location of 
+                the XSS vulnerability (instead of having a text element, there is a 
+                utext element, which introduces the vulnerability -->
+                <li th:each="post : ${posts}">
+                    <span th:utext="${post.title}" class="postTitle">TITLE</span>
+                    <br/> 
+                    <span th:utext="${post.content}" class="postContent">Content</span>
+                    <br/>
+                    - <span th:text="${post.account.username}" class="username">Username</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div th:replace="fragments/header :: footer">
+            <p> The footer goes here </p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <div th:include="fragments/header :: headAndRes"></div>
+    </head>
+    <body>
+        <div th:replace="fragments/header :: notLoggedIn">
+            <p> Navbar goes here </p>
+        </div>
+
+        <h1> Edit Post </h1>
+        <h2> Title </h2>
+        <span th:each="post : ${shouldBeChanged}">
+            <span th:text="${post.title}"> Title </span>
+            <h2> Content </h2> 
+            <form th:action="@{/edit/{id}(id=${post.id})}" th:method="POST">
+                <textarea name="content" rows="4" th:text="${post.content}">
+                    Content of message goes here
+                </textarea>
+                <br/>
+                <input type="submit" value="Submit"/>
+            </form>
+        </span>
+
+        <div th:replace="fragments/header :: footer">
+            <p> The footer goes here </p>
+        </div>
+    </body>
+</html>

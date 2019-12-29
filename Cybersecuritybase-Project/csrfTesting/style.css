@@ -1,0 +1,18 @@
+body {
+	margin-left: 50px;
+	margin-right: 50px;
+	font-color: black;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Roboto', sans-serif;
+}
+
+p {
+	font-family: 'Open-Sans', sans-serif;
+	font-size: 1em;
+}
+
+img {
+	display: block;
+}

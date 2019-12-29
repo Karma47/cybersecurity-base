@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <div th:include="fragments/header :: headAndRes"></div>
+    </head>
+    <body>
+        <div th:replace="fragments/header :: notLoggedIn">
+            <p> Navbar goes here </p>
+        </div>
+
+        <h1> Create a new Post </h1>
+        <form th:action="@{/newpost}" th:method="POST" class="bodyForm">
+            <p> Title </p> <input type="text" name="title"/>
+            <p> Content </p> <textarea name="content" rows = "4"/>
+            <br/>
+            <input type="submit" value="Post"/>
+        </form>
+
+        <div th:replace="fragments/header :: footer">
+            <p> The footer goes here </p>
+        </div>
+    </body>
+</html>

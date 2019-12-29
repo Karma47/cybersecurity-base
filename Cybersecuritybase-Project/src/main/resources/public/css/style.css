@@ -1,0 +1,57 @@
+.top-navbar ul {
+	background-color: #333;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+.top-navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    float: left;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+
+h1 {
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+.footer {
+    width: 100%;
+    position: relative;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    bottom: 0;
+}
+
+.footer p {
+    margin-top: 10px;
+}
+
+.posts li {
+    list-style-type: none;
+    margin-left: -20px;
+    padding: 10px;
+}
+
+.postTitle {
+    font-size: 2em;
+}
+
+.bodyForm {
+    margin-left: 10px;
+    margin-right: 10px;
+    min-height: 71vh;
+}
+
+.bodyForm p {
+    font-size: 1.5em;
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Plebbit</title>
+	<meta charset="UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0"/>
+	<meta name="description" content="Insecure Web Application for CyberSecurityBase"/>
+    </head>
+    <body>
+        <header th:replace="fragments/header :: notLoggedIn">
+            <p> Here is the header navbar </p>
+        </header>
+        
+        <div th:if="${param.error}">Username or Password is wrong !</div>
+        <h1>Login Here</h1>
+        
+        <form action="#" th:action="@{/login}" method="POST">
+            <p><label for="name">Username</label>: <input type="text" name="name" id="name"/></p>
+            <p><label for="address">Password</label>: <input type="password" name="address" id="address"/></p>
+            <p><input type="submit" value="Submit" /></p>
+        </form>
+    </body>
+</html>

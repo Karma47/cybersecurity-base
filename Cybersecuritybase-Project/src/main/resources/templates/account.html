@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <div th:include="fragments/header :: headAndRes"></div>
+    </head>
+    <body>
+        <div th:replace="fragments/header :: loggedIn">
+            <p> Navbar goes here </p>
+        </div>
+
+        <h1> My Account </h1>
+        <div class="bodyForm">
+            <ul>
+                <li><a th:href="@{/change}">Change My Password</a></li>
+                <li><a th:href="@{/newpost}">New Post</a></li>
+                <li th:if="${user.isAdmin()} == true"><a th:href="@{/admin}">Admin</a></li>
+            </ul>
+
+            <h3> My Posts </h3>
+            <ul>
+                <li th:if="${posts.empty}">
+                    <span>No Posts :(</span>
+                </li>
+                <!-- If you're looking through the code, this is the location of 
+                the XSS vulnerability (instead of having a text element, there is a 
+                utext element, which introduces the vulnerability -->
+                <li th:each="post : ${posts}">
+                    <span th:utext="${post.title}">TITLE</span>
+                    <br/>
+                    <span th:utext="${post.content}">Content</span>
+                    <br/>
+                    <form th:action="@{/edit/{id}(id=${post.id})}" th:method="GET">
+                        <input type="submit" value="Edit Post"/>
+                    </form>
+                    <form th:action="@{/edit/{id}(id=${post.id})}" th:method="Delete">
+                        <input type="submit" value="Delete Post"/>
+                    </form>
+                </li>
+            </ul>
+        </div>
+        
+        <div th:include="fragments/header :: footer"> The footer goes here </div>
+    </body>
+</html>

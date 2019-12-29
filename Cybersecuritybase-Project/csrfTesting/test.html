@@ -1,0 +1,85 @@
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0"/>
+	<meta name="description" content="Insecure Web Application for CyberSecurityBase"/>
+	<title>Clickbait Central</title>
+
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<!-- Some fonts for good measure -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300|Roboto" rel="stylesheet">
+</head>
+<body>
+	<div class="brand">
+		<h1> Clickbait Central </h1>
+	</div>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+		    	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+			        <span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+		      </button>
+		    </div>
+
+		    <div class="collapse navbar-collapse" id="myNavbar">
+	        	<ul class="nav navbar-nav">
+		        	<li><a href="#">Ads</a></li>
+		            <li><a href="#">Virus</a></li>
+		            <li><a href="#">Spam</a></li>
+		            <li><a href="#">More Trash</a></li>
+	        	</ul>
+	        </div>
+		</div>
+	</nav>
+
+	<h1>10 Things You Didn't know about Security Analysts!</h1>
+	You thought you knew what it took to be a security analyst? Think again.
+
+	<h2> 1. This stuff is just here as a placeholder </h2>
+	<img src="" alt="">
+	<p>The actual thing you're looking for is the first ad. It contains a malicious link which will post something sinister under your account!</p>
+	<h2> 2. This is probably the easiest vulnerability to fix. </h2>
+	<img src="" alt="">
+	<p> It's also probably quite easy to mess up, as just one line of code can make or break you. </p>
+	<h2> 3. Thought that this would be an actual list?</h2>
+	<img src="" alt="">
+	<p> Think again. This is simply here as a placeholder. </p>
+	<h2> 4. Struggling to think of ten things to put here </h2>
+	<img src="" alt="">
+	<p> Like I said, I don't know what to put here </p>
+	<h2> 7. Going to skip numbers here </h2>
+	<img src="" alt="">
+	<p> I can't think of anything interesting to put here, so going to skip numbers from here on out. </p>
+	<h2><a href="https://www.quora.com/Pixar-company/Did-Pixar-accidentally-delete-Toy-Story-2-during-production/answer/Oren-Jacob"> 8. This is why you back up regularly </a></h2>
+	<img src="" alt="">
+	<p> Title says it all. Back up your files people! </p>
+	<h2> 10. That's all folks! </h2>
+	<img src="images/thatsAll.jpg" alt="That pig from Looney Tunes" width="30%">
+	<p> Have fun testing my application and debugging my code! </p>
+	<div class="block-ad col-md-6">
+		<!-- Probably better to make this a hyperlink rather than a form, but whatever -->
+		<form action="http://localhost:8080/newpost" method="POST">
+			<input type="hidden" name="title" value="Poop"/>
+			<input type="hidden" name="content" value="<b> You just got hacked lol </b>">
+			<input type="image" src="images/surprised.jpg" height="300px">
+		</form>
+		<span class="text"> Developer disables CSRF tokens on website. What happens next will shock you! </span>
+	</div>
+	<div class="block-ad col-md-6">
+		<!-- This ad will change the first post in the database -->
+		<form action="http://localhost:8080/edit/1" method="POST">
+			<input type="hidden" name="content" value="She hacks people like you">
+			<input type="image" src="images/money.jpg" height="300px">
+		</form>
+		<span class="text">Woman makes $10,000 a month working at home. How she does it will surprise you! </span>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

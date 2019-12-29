@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <div th:include="fragments/header :: headAndRes"></div>
+    </head>
+    <body>
+        <div th:replace="fragments/header :: notLoggedIn">
+            <p> Navbar goes here </p>
+        </div>
+
+        <h1> Create New Account </h1>
+        <form th:action="@{/signup}" th:method="POST" class="bodyForm">
+            <p> Username </p> <input type="text" name="username"/>
+            <p> Password </p> <input type="password" name="password"/>
+            <br/>
+            <input type="submit" value="Create"/>
+        </form>
+        
+        <div th:replace="fragments/header :: footer">
+            <p> The footer goes here </p>
+        </div>
+    </body>
+</html>

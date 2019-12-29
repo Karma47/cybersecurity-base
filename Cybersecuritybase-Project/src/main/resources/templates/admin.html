@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <div th:include="fragments/header :: headAndRes"></div>
+    </head>
+    <body>
+        <div th:replace="fragments/header :: loggedIn">
+            <p> Navbar goes here </p>
+        </div>
+
+        <h1> Hello  Admin </h1>
+
+        <div class="bodyForm">
+            <div class="col-md-6">
+                <h3 style="text-align: center"> Users </h3>
+                <ul>
+                    <li th:if="${users.empty}">
+                        <span>No Users not found </span>
+                    </li>
+
+                    <li th:each="user : ${users}">
+                        <span th:utext="${user.username}">Username</span>
+                        <br/>
+                        <form th:action="@{/admin/{id}(id=${user.id})}" th:method="DELETE">
+                            <input type="submit" value="Kick User"/>
+                        </form>
+                        
+                        <form th:unless="${user.admin}" th:action="@{/admin/{id}(id=${user.id})}" th:method="POST">
+                            <input type="submit" value="Make Admin"/>
+                        </form>
+
+                        <form th:if="${user.admin}" th:action="@{/admin/{id}(id=${user.id})}" th:method="PATCH">
+                            <input type="submit" value="Remove Admin"/>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="col-md-6">
+                <h3 style="text-align: center"> All Posts </h3>
+                <ul>
+                    <li th:if="${posts.empty}">
+                        <span>No Posts :(</span>
+                    </li>
+                    <!-- If you're looking through the code, this is the location of 
+                    the XSS vulnerability (instead of having a text element, there is a 
+                    utext element, which introduces the vulnerability -->
+                    <li th:each="post : ${posts}">
+                        <span th:utext="${post.title}">TITLE</span>
+                        <br/>
+                        <span th:utext="${post.content}">Content</span>
+                        <br/>
+                        <span th:text="${post.account.username}" class="user">Username</span>
+                        <br/>
+                        <form th:action="@{/edit/{id}(id=${post.id})}" th:method="GET">
+                            <input type="submit" value="Edit Post"/>
+                        </form>
+                        <form th:action="@{/edit/{id}(id=${post.id})}" th:method="DELETE">
+                            <input type="submit" value="Delete Post"/>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div th:replace="fragments/header :: footer">
+            <p> The footer goes here </p>
+        </div>
+    </body>
+</html>
